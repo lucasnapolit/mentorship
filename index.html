@@ -447,14 +447,14 @@
         }
 
         .label-bubble {
-            width: 72px;
-            height: 72px;
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
             overflow: hidden;
-            flex: 0 0 72px;
+            flex: 0 0 96px;
             display: inline-block;
             border: 2px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.6);
             transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
             background: rgba(255,255,255,0.02);
         }
@@ -472,11 +472,79 @@
             border-color: rgba(0,255,255,0.18);
         }
 
+        @media (max-width: 900px) {
+            .label-bubble {
+                width: 80px;
+                height: 80px;
+                flex: 0 0 80px;
+            }
+            .releases-row {
+                gap: 14px;
+            }
+        }
+
         @media (max-width: 600px) {
             .label-bubble {
-                width: 56px;
-                height: 56px;
-                flex: 0 0 56px;
+                width: 72px;
+                height: 72px;
+                flex: 0 0 72px;
+            }
+            .releases-row {
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Releases row (images side-by-side, centered) */
+
+        .releases-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 6px 0;
+            overflow: hidden;
+        }
+
+        .release-item {
+            flex: 0 1 30%;
+            max-width: 320px;
+            display: block;
+            text-align: center;
+        }
+
+        .release-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 12px 34px rgba(0,0,0,0.6);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .release-item:hover img {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 18px 46px rgba(0,255,255,0.06);
+        }
+
+        @media (max-width: 900px) {
+            .release-item img {
+                height: 130px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .release-item img {
+                height: 110px;
+            }
+            .releases-row {
+                gap: 12px;
+                flex-wrap: wrap;
             }
         }
 
@@ -513,14 +581,10 @@
                 <div class="about-item">
                     <strong>50+</strong>
                         <span>releases on major labels</span>
-                        <div class="label-bubbles" aria-hidden="false">
-                            <a href="#" class="label-bubble" title="A"><img src="a.png" alt="A logo"></a>
-                            <a href="#" class="label-bubble" title="Gain Records"><img src="gainrecords.webp" alt="Gain Records logo"></a>
-                            <a href="#" class="label-bubble" title="IAM Techno"><img src="iamtechno.webp" alt="IAM Techno logo"></a>
-                            <a href="#" class="label-bubble" title="M"><img src="m.jpg" alt="M logo"></a>
-                            <a href="#" class="label-bubble" title="Say What Recordings"><img src="saywhatrecordings.webp" alt="Say What Recordings logo"></a>
-                            <a href="#" class="label-bubble" title="Set About"><img src="setabout.webp" alt="Set About logo"></a>
-                            <a href="#" class="label-bubble" title="Volta"><img src="volta-logo-framed.webp" alt="Volta logo"></a>
+                        <div class="releases-row" aria-hidden="false">
+                            <a href="#" class="release-item" title="Release 1"><img src="releasees 1.png" alt="Release 1"></a>
+                            <a href="#" class="release-item" title="Release 2"><img src="releases 2.png" alt="Release 2"></a>
+                            <a href="#" class="release-item" title="Release 3"><img src="releases 3.png" alt="Release 3"></a>
                         </div>
                 </div>
                 <div class="about-item">
@@ -530,6 +594,15 @@
                 <div class="about-item">
                     <strong>20+</strong>
                     <span>record labels worldwide</span>
+                    <div class="label-bubbles" aria-hidden="false">
+                        <a href="#" class="label-bubble" title="A"><img src="a.png" alt="A logo"></a>
+                        <a href="#" class="label-bubble" title="Gain Records"><img src="gainrecords.webp" alt="Gain Records logo"></a>
+                        <a href="#" class="label-bubble" title="IAM Techno"><img src="iamtechno.webp" alt="IAM Techno logo"></a>
+                        <a href="#" class="label-bubble" title="M"><img src="m.jpg" alt="M logo"></a>
+                        <a href="#" class="label-bubble" title="Say What Recordings"><img src="saywhatrecordings.webp" alt="Say What Recordings logo"></a>
+                        <a href="#" class="label-bubble" title="Set About"><img src="setabout.webp" alt="Set About logo"></a>
+                        <a href="#" class="label-bubble" title="Volta"><img src="volta-logo-framed.webp" alt="Volta logo"></a>
+                    </div>
                 </div>
                 <div class="about-item">
                     <strong>International</strong>
@@ -554,7 +627,7 @@
                 </div>
                 <div class="credential-item">
                     <div class="number">Argentina & Chile</div>
-                    <div class="label">Major venues: Wabi Fun Club, Dune Park, Club La Octava, Techno Traveling</div>
+                    <div class="label">Major venues: Barhein, Dune Park, WAbI , Caupolican theater</div>
                 </div>
                 <div class="credential-item">
                     <div class="number">✓</div>
