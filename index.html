@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luca Napoli - 1-to-1 Mentorship for Electronic Music Producers</title>
+    <link rel="icon" href="logolucanapoli.png" type="image/png">
+    <link rel="apple-touch-icon" href="logolucanapoli.png">
     <style>
         * {
             margin: 0;
@@ -86,6 +88,49 @@
             width: 100%;
             height: 100%;
             filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.3));
+        }
+
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            filter: drop-shadow(0 0 18px rgba(0,255,255,0.18));
+        }
+
+        /* Larger glowing logo on the hero (welcome) page */
+        .hero .hero-logo {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 32px;
+        }
+
+        .hero .site-logo {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 30px rgba(0,255,255,0.38));
+            box-shadow: 0 0 40px rgba(0,255,255,0.12), 0 8px 30px rgba(0,255,255,0.10);
+            border-radius: 10px;
+            transition: transform 240ms ease, box-shadow 240ms ease, filter 240ms ease;
+        }
+
+        /* Small site logo that becomes fixed top-left on scroll */
+        .site-logo {
+            transition: all 240ms ease;
+            transform-origin: left top;
+            will-change: transform, width, height, top, left;
+        }
+
+        .site-logo.fixed {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            width: 40px !important;
+            height: 40px !important;
+            z-index: 9999;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+            border-radius: 6px;
+            background: rgba(10,10,10,0.6);
         }
 
         .hero h1 {
@@ -366,6 +411,14 @@
             fill: currentColor;
         }
 
+        .social-link img {
+            width: 24px;
+            height: 24px;
+            display: block;
+            object-fit: contain;
+            filter: drop-shadow(0 6px 18px rgba(0,0,0,0.4));
+        }
+
         /* Testimonials */
         .testimonial {
             background: rgba(255, 255, 255, 0.02);
@@ -442,9 +495,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-logo">
-                <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="28,15 100,15 72,120 0,120" fill="#00ffff"/>
-                </svg>
+                <img src="logo1.png" alt="Luca Napoli logo" class="site-logo" id="siteLogo">
             </div>
             <h1>1–to–1 Mentorship for Electronic Music Producers</h1>
             <p>Finish better tracks. Develop your sound. Move forward professionally.</p>
@@ -512,7 +563,7 @@
             
             <div style="margin-top: 48px;">
                 <p class="intro-text" style="margin-bottom: 16px;"><strong>Shared the stage with:</strong></p>
-                <p class="intro-text">Matt Sasari, MT93, The Yellowheads</p>
+                <p class="intro-text">Matt Sasari, MT93, The Yellowheads among others </p>
             </div>
         </div>
     </section>
@@ -593,11 +644,11 @@
                 <a href="https://www.youtube.com/@lucanapolidj" target="_blank" rel="noopener" class="social-link" title="YouTube">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                 </a>
-                <a href="https://soundcloud.com/lucanapolidj" target="_blank" rel="noopener" class="social-link" title="SoundCloud">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c0-.057-.045-.1-.09-.1m-.899.828c-.051 0-.09.04-.099.098l-.154 1.326.154 1.261c.01.059.048.099.099.099.05 0 .09-.04.098-.099l.176-1.261-.176-1.326c0-.057-.045-.098-.098-.098m1.77-1.774c-.06 0-.113.051-.123.113l-.203 2.928.203 2.849c.01.062.063.113.123.113.062 0 .114-.051.122-.113l.23-2.849-.23-2.928c-.008-.062-.06-.113-.122-.113m.899-.551c-.06 0-.114.051-.122.113l-.204 3.479.204 3.39c.008.062.063.113.122.113.062 0 .115-.051.122-.113l.23-3.39-.23-3.479c-.007-.062-.06-.113-.122-.113m.899-.205c-.07 0-.127.056-.141.125l-.18 3.684.18 3.59c.014.07.071.126.141.126.07 0 .125-.056.138-.126l.203-3.59-.203-3.684c-.013-.069-.068-.125-.138-.125m.902.07c-.077 0-.138.062-.154.137l-.164 3.614.164 3.522c.016.076.077.137.154.137.076 0 .137-.061.152-.137l.18-3.522-.18-3.614c-.015-.075-.076-.137-.152-.137m.899-.117c-.08 0-.145.063-.163.144l-.141 3.731.141 3.645c.018.081.083.145.163.145.081 0 .145-.064.163-.145l.156-3.645-.156-3.731c-.018-.081-.082-.144-.163-.144m.901.068c-.089 0-.158.07-.176.158l-.127 3.663.127 3.589c.018.088.087.157.176.157.089 0 .157-.07.176-.157l.141-3.589-.141-3.663c-.019-.089-.087-.158-.176-.158m.899.01c-.095 0-.168.073-.184.168l-.113 3.653.113 3.583c.016.096.089.169.184.169.096 0 .169-.073.185-.169l.125-3.583-.125-3.653c-.016-.095-.089-.168-.185-.168m.902-.013c-.101 0-.176.079-.194.179l-.102 3.666.102 3.58c.018.1.093.179.194.179.102 0 .177-.079.194-.179l.114-3.58-.114-3.666c-.017-.1-.092-.179-.194-.179m.899.196c-.107 0-.189.084-.206.189l-.089 3.47.089 3.584c.017.106.099.19.206.19.107 0 .189-.084.206-.19l.101-3.584-.101-3.47c-.017-.105-.099-.189-.206-.189m.901-.18c-.113 0-.199.091-.217.202l-.075 3.65.075 3.597c.018.111.104.201.217.201.113 0 .2-.09.218-.201l.087-3.597-.087-3.65c-.018-.111-.105-.202-.218-.202m.899.001c-.12 0-.209.096-.226.215l-.062 3.648.062 3.591c.017.119.106.215.226.215.119 0 .209-.096.226-.215l.075-3.591-.075-3.648c-.017-.119-.107-.215-.226-.215m.902-.014c-.126 0-.219.101-.236.227l-.048 3.662.048 3.583c.017.126.11.227.236.227.125 0 .219-.101.235-.227l.06-3.583-.06-3.662c-.016-.126-.11-.227-.235-.227m.899-.227c-.132 0-.229.107-.246.238l-.034 3.889.034 3.58c.017.132.114.239.246.239.131 0 .228-.107.244-.239l.047-3.58-.047-3.889c-.016-.131-.113-.238-.244-.238m.901.227c-.138 0-.237.112-.254.249l-.021 3.662.021 3.598c.017.137.116.248.254.248.137 0 .237-.111.253-.248l.033-3.598-.033-3.662c-.016-.137-.116-.249-.253-.249m2.416-2.388c-.153 0-.278.125-.296.278l-.014 5.599.014 5.279c.018.153.143.277.296.277.154 0 .277-.124.295-.277l.018-5.279-.018-5.599c-.018-.153-.141-.278-.295-.278m-1.604 1.635c-.145 0-.262.117-.279.261l-.007 4.712.007 4.581c.017.144.134.261.279.261.144 0 .262-.117.278-.261l.01-4.581-.01-4.712c-.016-.144-.134-.261-.278-.261"/></svg>
+                <a href="https://soundcloud.com/luca-napoli" target="_blank" rel="noopener" class="social-link" title="SoundCloud">
+                    <img src="soundcloud.png" alt="SoundCloud logo">
                 </a>
                 <a href="https://www.beatport.com/artist/luca-napoli/828536" target="_blank" rel="noopener" class="social-link" title="Beatport">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm6.5 16.5h-3.2c-.4 0-.8-.2-1-.5l-2.3-3.8-2.3 3.8c-.2.3-.6.5-1 .5H5.5c-.3 0-.5-.2-.5-.5 0-.1 0-.2.1-.3l4.4-7.2-4.3-7c-.1-.2-.1-.4.1-.6.1-.1.2-.1.4-.1h3.2c.4 0 .8.2 1 .5l2.2 3.7 2.2-3.7c.2-.3.6-.5 1-.5h3.2c.3 0 .5.2.5.5 0 .1 0 .2-.1.3L14.5 9l4.4 7.2c.1.2.1.4-.1.6-.1.1-.2.1-.3.1z"/></svg>
+                    <img src="beatport.png" alt="Beatport logo">
                 </a>
             </div>
             
@@ -722,6 +773,32 @@
                 }
             });
         });
+
+        // Logo: fixed small top-left on scroll
+        (function() {
+            const logo = document.getElementById('siteLogo');
+            const hero = document.querySelector('.hero');
+            if (!logo || !hero) return;
+            let threshold = hero.offsetHeight - 80;
+
+            function onScroll() {
+                if (window.scrollY > threshold) {
+                    logo.classList.add('fixed');
+                } else {
+                    logo.classList.remove('fixed');
+                }
+            }
+
+            function onResize() {
+                threshold = hero.offsetHeight - 80;
+                onScroll();
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onResize);
+            // initialize state
+            onScroll();
+        })();
     </script>
 </body>
 </html>
