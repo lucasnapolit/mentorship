@@ -687,10 +687,59 @@
             grid-template-columns: 1fr;
             gap: 24px;
         }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            gap: 8px;
+            background: rgba(10, 10, 10, 0.95);
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .lang-btn {
+            padding: 6px 14px;
+            background: transparent;
+            color: #a0a0a0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .lang-btn:hover {
+            color: #e0e0e0;
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #00ffff 0%, #00cccc 100%);
+            color: #0a0a0a;
+            border-color: #00ffff;
+        }
+
+        .lang-btn.active:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+        }
     
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en" title="English">US</button>
+        <button class="lang-btn" data-lang="es" title="Español">ES</button>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -1126,6 +1175,316 @@
             // initialize state
             onScroll();
         })();
+
+        // Language Switcher Functionality
+        const translations = {
+            "1–to–1 Mentorship for Electronic Music Producers": {
+                es: "Mentoría 1 a 1 para Productores de Música Electrónica"
+            },
+            "3-Month Electronic Music Production Program": {
+                es: "Programa de Producción de Música Electrónica de 3 Meses"
+            },
+            "A structured 1-to-1 coaching path designed to take you from zero to your first finished electronic music track.": {
+                es: "Un camino de coaching 1 a 1 estructurado diseñado para llevarte de cero a tu primer track de música electrónica terminado."
+            },
+            "What You Will Learn (12-Week Path)": {
+                es: "Lo Que Aprenderás (Camino de 12 Semanas)"
+            },
+            "Week 1 – DAW Setup & Workflow (Ableton Live)": {
+                es: "Semana 1 – Configuración del DAW y Flujo de Trabajo (Ableton Live)"
+            },
+            "Week 2 – Drums, Rhythm & Groove Foundations": {
+                es: "Semana 2 – Fundamentos de Baterías, Ritmo y Groove"
+            },
+            "Week 3 – Kick & Bass Relationship / Sidechain": {
+                es: "Semana 3 – Relación Kick & Bass / Sidechain"
+            },
+            "Week 4 – EQ & Compression Fundamentals": {
+                es: "Semana 4 – Fundamentos de EQ y Compresión"
+            },
+            "Week 5 – FX, Space & Atmosphere": {
+                es: "Semana 5 – FX, Espacio y Atmósfera"
+            },
+            "Week 6 – Melody & Basic Harmony": {
+                es: "Semana 6 – Melodía y Armonía Básica"
+            },
+            "Week 7 – Sound Design Basics (Synths & Samplers)": {
+                es: "Semana 7 – Fundamentos de Sound Design (Sintetizadores y Samplers)"
+            },
+            "Week 8 – Arrangement & Structure": {
+                es: "Semana 8 – Arreglo y Estructura"
+            },
+            "Week 9 – Transitions & Dynamics": {
+                es: "Semana 9 – Transiciones y Dinámicas"
+            },
+            "Week 10 – Mixing Fundamentals": {
+                es: "Semana 10 – Fundamentos de Mezcla"
+            },
+            "Week 11 – Track Finalization": {
+                es: "Semana 11 – Finalización del Track"
+            },
+            "Week 12 – Export, Loudness & Release Preparation": {
+                es: "Semana 12 – Exportación, Loudness y Preparación para Lanzamiento"
+            },
+            "Choose Your Coaching Level": {
+                es: "Elige tu Nivel de Coaching"
+            },
+            "Core · Beginner": {
+                es: "Core · Principiante"
+            },
+            "For complete beginners": {
+                es: "Para principiantes completos"
+            },
+            "12 classes · €50 per session": {
+                es: "12 clases · €50 por sesión"
+            },
+            "12 × 1-to-1 sessions (60 min)": {
+                es: "12 × sesiones 1 a 1 (60 min)"
+            },
+            "Structured beginner roadmap": {
+                es: "Mapa de ruta estructurado para principiantes"
+            },
+            "Track completed by the end": {
+                es: "Track completado al final"
+            },
+            "Basic feedback during sessions": {
+                es: "Retroalimentación básica durante las sesiones"
+            },
+            "Apply Now": {
+                es: "Solicitar Ahora"
+            },
+            "Intermediate · Pro Path": {
+                es: "Intermedio · Ruta Pro"
+            },
+            "For committed learners": {
+                es: "Para aprendices comprometidos"
+            },
+            "More support & feedback": {
+                es: "Más apoyo y retroalimentación"
+            },
+            "17 1-to-1 sessions": {
+                es: "17 sesiones 1 a 1"
+            },
+            "2 extra project reviews (offline)": {
+                es: "2 revisiones de proyectos adicionales (sin conexión)"
+            },
+            "Mix & arrangement feedback": {
+                es: "Retroalimentación de mezcla y arreglo"
+            },
+            "Workflow & creative guidance": {
+                es: "Flujo de trabajo y orientación creativa"
+            },
+            "Luca napoli \"Essential techno\" Sample pack": {
+                es: "Pack de muestras \"Essential Techno\" de Luca Napoli"
+            },
+            "Premium · Mentorship": {
+                es: "Premium · Mentoría"
+            },
+            "Serious artist development": {
+                es: "Desarrollo serio del artista"
+            },
+            "24 1-to-1 sessions": {
+                es: "24 sesiones 1 a 1"
+            },
+            "Unlimited project feedback": {
+                es: "Retroalimentación ilimitada de proyectos"
+            },
+            "Release & branding guidance": {
+                es: "Orientación de lanzamiento y marca"
+            },
+            "Career & sound identity focus": {
+                es: "Enfoque en carrera e identidad de sonido"
+            },
+            "Luca napoli complete track project breakdowns": {
+                es: "Desglose de proyectos completos de tracks de Luca Napoli"
+            },
+            "Luca napoli \"Golden Techno\" Sample pack": {
+                es: "Pack de muestras \"Golden Techno\" de Luca Napoli"
+            },
+            "Apply for Mentorship": {
+                es: "Solicitar Mentoría"
+            },
+            "Tell me about where you are and where you want to go.": {
+                es: "Cuéntame dónde estás y hacia dónde quieres ir."
+            },
+            "Name": {
+                es: "Nombre"
+            },
+            "Email": {
+                es: "Correo Electrónico"
+            },
+            "Your current level": {
+                es: "Tu nivel actual"
+            },
+            "Your goals": {
+                es: "Tus objetivos"
+            },
+            "Links to your music": {
+                es: "Enlaces a tu música"
+            },
+            "Submit Application": {
+                es: "Enviar Solicitud"
+            },
+            "What we work on together:": {
+                es: "En qué trabajamos juntos:"
+            },
+            "How it works": {
+                es: "Cómo funciona"
+            },
+            "Experience & Recognition": {
+                es: "Experiencia y Reconocimiento"
+            },
+            "About Luca Napoli": {
+                es: "Sobre Luca Napoli"
+            },
+            "This mentorship is for you if:": {
+                es: "Esta mentoría es para ti si:"
+            },
+            "This Course is for you if:": {
+                es: "Este Curso es para ti si:"
+            },
+            "1–to–1 online sessions": {
+                es: "Sesiones en línea 1 a 1"
+            },
+            "Tailored to your level and goals": {
+                es: "Adaptado a tu nivel y objetivos"
+            },
+            "No pre-recorded courses": {
+                es: "Sin cursos pregrabados"
+            },
+            "Long-term mentorship available": {
+                es: "Mentoría a largo plazo disponible"
+            },
+            "Understanding your DAW and building a solid workflow": {
+                es: "Entender tu DAW y construir un flujo de trabajo sólido"
+            },
+            "Drum programming, groove and rhythm foundations": {
+                es: "Programación de batería, fundamentos de groove y ritmo"
+            },
+            "Bass, low-end balance and basic sound design": {
+                es: "Bajo, equilibrio de bajos y diseño básico de sonido"
+            },
+            "EQ, compression and effects (from zero, no assumptions)": {
+                es: "EQ, compresión y efectos (desde cero, sin suposiciones)"
+            },
+            "Track structure: how to turn loops into full tracks": {
+                es: "Estructura de pista: cómo convertir loops en pistas completas"
+            },
+            "Finishing and exporting your first complete track": {
+                es: "Finalizar y exportar tu primer track completo"
+            },
+            "You never finish tracks or don't know how to turn a loop into a full song": {
+                es: "Nunca terminas pistas o no sabes cómo convertir un loop en una canción completa"
+            },
+            "You open your DAW and have no idea where to start": {
+                es: "Abres tu DAW y no tienes idea por dónde empezar"
+            },
+            "You feel like you watch tutorials but the concepts don't really click": {
+                es: "Sientes que ves tutoriales pero los conceptos realmente no te quedan claros"
+            },
+            "You want to understand structure, groove, and sound from the ground up": {
+                es: "Quieres entender la estructura, el groove y el sonido desde cero"
+            },
+            "Your goal is to finish your first full track within 3 months": {
+                es: "Tu objetivo es terminar tu primer track completo en 3 meses"
+            },
+            "From Buenos Aires, Argentina. Techno producer, DJ, and mentor with years of real industry experience bringing music to every corner of South America and beyond.": {
+                es: "De Buenos Aires, Argentina. Productor de techno, DJ y mentor con años de experiencia real en la industria llevando música a cada rincón de América del Sur y más allá."
+            }
+        };
+
+        function translatePage(lang) {
+            // Función auxiliar para traducir el contenido de texto de un elemento
+            function translateElement(el) {
+                // Para elementos que solo contienen texto
+                if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+                    const text = el.textContent.trim();
+                    if (text && translations[text] && translations[text][lang]) {
+                        el.textContent = translations[text][lang];
+                        return;
+                    }
+                }
+                
+                // Para elementos con múltiples nodos (p, li, etc)
+                el.childNodes.forEach(node => {
+                    if (node.nodeType === 3) { // Text node
+                        const text = node.textContent.trim();
+                        if (text && translations[text] && translations[text][lang]) {
+                            node.textContent = translations[text][lang];
+                        }
+                    }
+                });
+            }
+            
+            // Traducir h1, h2, h3
+            document.querySelectorAll('h1, h2, h3').forEach(el => {
+                translateElement(el);
+            });
+            
+            // Traducir párrafos
+            document.querySelectorAll('p').forEach(el => {
+                translateElement(el);
+            });
+            
+            // Traducir items de lista
+            document.querySelectorAll('li').forEach(el => {
+                translateElement(el);
+            });
+            
+            // Traducir labels
+            document.querySelectorAll('label').forEach(el => {
+                translateElement(el);
+            });
+            
+            // Traducir botones submit
+            document.querySelectorAll('button[type="submit"]').forEach(el => {
+                translateElement(el);
+            });
+            
+            // Traducir summary (acordeones de semanas)
+            document.querySelectorAll('summary').forEach(el => {
+                translateElement(el);
+            });
+            
+            // Traducir divs con clase específica (testimonials, etc)
+            document.querySelectorAll('div').forEach(el => {
+                if (el.className && (el.className.includes('testimonial') || el.className.includes('intro-text'))) {
+                    translateElement(el);
+                }
+            });
+        }
+
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const defaultLang = localStorage.getItem('language') || 'en';
+        
+        // Set initial language
+        if (defaultLang === 'es') {
+            translatePage('es');
+        }
+        
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.lang === defaultLang) {
+                btn.classList.add('active');
+            }
+        });
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const lang = button.dataset.lang;
+                localStorage.setItem('language', lang);
+                
+                if (lang === 'es') {
+                    translatePage('es');
+                } else {
+                    location.reload(); // Reload to restore English
+                }
+                
+                // Update active button
+                langButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>

@@ -556,10 +556,59 @@
                 grid-template-columns: 1fr;
                 gap: 24px;
             }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            gap: 8px;
+            background: rgba(10, 10, 10, 0.95);
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .lang-btn {
+            padding: 6px 14px;
+            background: transparent;
+            color: #a0a0a0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .lang-btn:hover {
+            color: #e0e0e0;
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #00ffff 0%, #00cccc 100%);
+            color: #0a0a0a;
+            border-color: #00ffff;
+        }
+
+        .lang-btn.active:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+        }
         
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en" title="English">US</button>
+        <button class="lang-btn" data-lang="es" title="Español">ES</button>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -873,6 +922,247 @@
             // initialize state
             onScroll();
         })();
+
+        // Language Switcher Functionality
+        const translations = {
+            "1–to–1 Mentorship for Electronic Music Producers": {
+                es: "Mentoría 1 a 1 para Productores de Música Electrónica"
+            },
+            "Finish better tracks. Develop your sound. Move forward professionally.": {
+                es: "Termina mejores pistas. Desarrolla tu sonido. Avanza profesionalmente."
+            },
+            "Apply for Mentorship": {
+                es: "Solicitar Mentoría"
+            },
+            "About Luca Napoli": {
+                es: "Sobre Luca Napoli"
+            },
+            "From Buenos Aires, Argentina. Techno producer, DJ, and mentor with years of real industry experience bringing music to every corner of South America and beyond.": {
+                es: "De Buenos Aires, Argentina. Productor de techno, DJ y mentor con años de experiencia real en la industria llevando música a cada rincón de América del Sur y más allá."
+            },
+            "This mentorship is for you if:": {
+                es: "Esta mentoría es para ti si:"
+            },
+            "You start many tracks but rarely finish them": {
+                es: "Comienzas muchas pistas pero rara vez las terminas"
+            },
+            "Your sound feels inconsistent or unclear": {
+                es: "Tu sonido se siente inconsistente o poco claro"
+            },
+            "You want to reach better labels": {
+                es: "Quieres llegar a mejores sellos"
+            },
+            "You want honest, professional feedback": {
+                es: "Quieres retroalimentación honesta y profesional"
+            },
+            "You take music seriously": {
+                es: "Te tomas la música en serio"
+            },
+            "What we work on together:": {
+                es: "En qué trabajamos juntos:"
+            },
+            "Track feedback & finishing process": {
+                es: "Retroalimentación de pistas y proceso de finalización"
+            },
+            "Sound identity & artistic direction": {
+                es: "Identidad de sonido y dirección artística"
+            },
+            "Arrangement, energy & decision-making": {
+                es: "Arreglo, energía y toma de decisiones"
+            },
+            "Industry guidance (labels, releases, strategy)": {
+                es: "Orientación industrial (sellos, lanzamientos, estrategia)"
+            },
+            "Optional release support through Luca's labels": {
+                es: "Apoyo opcional de lanzamiento a través de los sellos de Luca"
+            },
+            "How it works": {
+                es: "Cómo funciona"
+            },
+            "1–to–1 online sessions": {
+                es: "Sesiones en línea 1 a 1"
+            },
+            "Tailored to your level and goals": {
+                es: "Adaptado a tu nivel y objetivos"
+            },
+            "No pre-recorded courses": {
+                es: "Sin cursos pregrabados"
+            },
+            "Long-term mentorship available": {
+                es: "Mentoría a largo plazo disponible"
+            },
+            "What producers say": {
+                es: "Qué dicen los productores"
+            },
+            "Working with Luca transformed how I approach production. His feedback is direct, honest, and exactly what I needed to finally finish tracks I'm proud of.": {
+                es: "Trabajar con Luca transformó mi forma de abordar la producción. Su retroalimentación es directa, honesta y exactamente lo que necesitaba para finalmente terminar pistas de las que estoy orgulloso."
+            },
+            "Techno Producer, Argentina": {
+                es: "Productor de Techno, Argentina"
+            },
+            "Luca doesn't just teach techniques—he helps you find your sound. The industry guidance alone has been invaluable.": {
+                es: "Luca no solo enseña técnicas, sino que te ayuda a encontrar tu sonido. La orientación industrial por sí sola ha sido invaluable."
+            },
+            "Electronic Music Producer, Chile": {
+                es: "Productor de Música Electrónica, Chile"
+            },
+            "Experience & Recognition": {
+                es: "Experiencia y Reconocimiento"
+            },
+            "Beatport Techno Chart (Peak Time/Driving) - April 2025": {
+                es: "Gráfico de Techno de Beatport (Peak Time/Driving) - Abril 2025"
+            },
+            "Featured in Best Techno Charts, Best of the Year, Closing Essentials": {
+                es: "Destacado en los Mejores Gráficos de Techno, Lo Mejor del Año, Clausura Esencial"
+            },
+            "Major venues: Barhein, Dune Park, WAbI , Caupolican theater": {
+                es: "Lugares principales: Barhein, Dune Park, WAbI, Teatro Caupolicán"
+            },
+            "Supported by Adam Beyer, Monika Kruse, Victor Ruiz, Wehba, Joris Voorn, Amelie Lens, Charlotte de Witte, Spartake": {
+                es: "Apoyado por Adam Beyer, Monika Kruse, Victor Ruiz, Wehba, Joris Voorn, Amelie Lens, Charlotte de Witte, Spartake"
+            },
+            "Shared the stage with:": {
+                es: "Compartió escena con:"
+            },
+            "Matt Sasari, MT93, The Yellowheads among others": {
+                es: "Matt Sasari, MT93, The Yellowheads entre otros"
+            },
+            "50+": {
+                es: "50+"
+            },
+            "releases on major labels": {
+                es: "lanzamientos en sellos importantes"
+            },
+            "Beatport #1": {
+                es: "Beatport #1"
+            },
+            "Techno Releases": {
+                es: "Lanzamientos de Techno"
+            },
+            "20+": {
+                es: "20+"
+            },
+            "record labels worldwide": {
+                es: "sellos discográficos mundiales"
+            },
+            "International": {
+                es: "Internacional"
+            },
+            "tracks played by top artists": {
+                es: "pistas reproducidas por artistas principales"
+            },
+            "What we work on together:": {
+                es: "En qué trabajamos juntos:"
+            },
+            "How it works": {
+                es: "Cómo funciona"
+            },
+            "What producers say": {
+                es: "Qué dicen los productores"
+            },
+            "This mentorship is for you if:": {
+                es: "Esta mentoría es para ti si:"
+            },
+            "Experience & Recognition": {
+                es: "Experiencia y Reconocimiento"
+            },
+            "About Luca Napoli": {
+                es: "Sobre Luca Napoli"
+            }
+        };
+
+        function translatePage(lang) {
+            // Función auxiliar para traducir el contenido de texto de un elemento
+            function translateElement(el) {
+                // Para elementos que solo contienen texto
+                if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+                    const text = el.textContent.trim();
+                    if (text && translations[text] && translations[text][lang]) {
+                        el.textContent = translations[text][lang];
+                        return;
+                    }
+                }
+                
+                // Para elementos con múltiples nodos (p, li, etc)
+                el.childNodes.forEach(node => {
+                    if (node.nodeType === 3) { // Text node
+                        const text = node.textContent.trim();
+                        if (text && translations[text] && translations[text][lang]) {
+                            node.textContent = translations[text][lang];
+                        }
+                    }
+                });
+            }
+            
+            // Traducir h1, h2, h3
+            document.querySelectorAll('h1, h2, h3').forEach(el => {
+                translateElement(el);
+            });
+            
+            // Traducir párrafos
+            document.querySelectorAll('p').forEach(el => {
+                translateElement(el);
+            });
+            
+            // Traducir items de lista
+            document.querySelectorAll('li').forEach(el => {
+                translateElement(el);
+            });
+            
+            // Traducir labels
+            document.querySelectorAll('label').forEach(el => {
+                translateElement(el);
+            });
+            
+            // Traducir botones submit
+            document.querySelectorAll('button[type="submit"]').forEach(el => {
+                translateElement(el);
+            });
+            
+            // Traducir summary (acordeones de semanas)
+            document.querySelectorAll('summary').forEach(el => {
+                translateElement(el);
+            });
+            
+            // Traducir divs con clase específica (testimonials, etc)
+            document.querySelectorAll('div').forEach(el => {
+                if (el.className && (el.className.includes('testimonial') || el.className.includes('intro-text'))) {
+                    translateElement(el);
+                }
+            });
+        }
+
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const defaultLang = localStorage.getItem('language') || 'en';
+        
+        // Set initial language
+        if (defaultLang === 'es') {
+            translatePage('es');
+        }
+        
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.lang === defaultLang) {
+                btn.classList.add('active');
+            }
+        });
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const lang = button.dataset.lang;
+                localStorage.setItem('language', lang);
+                
+                if (lang === 'es') {
+                    translatePage('es');
+                } else {
+                    location.reload(); // Reload to restore English
+                }
+                
+                // Update active button
+                langButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>
