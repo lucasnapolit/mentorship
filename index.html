@@ -1074,19 +1074,33 @@
         function translatePage(lang) {
             // Función auxiliar para traducir el contenido de texto de un elemento
             function translateElement(el) {
-                // Para elementos que solo contienen texto
+                // Check if element only has text content (no child elements)
                 if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
-                    const text = el.textContent.trim();
+                    const text = el.childNodes[0].textContent;
+                    // Try with trimmed text first
+                    let trimmedText = text.trim();
+                    if (trimmedText && translations[trimmedText] && translations[trimmedText][lang]) {
+                        el.textContent = translations[trimmedText][lang];
+                        return;
+                    }
+                    // Try with original text (preserving whitespace)
                     if (text && translations[text] && translations[text][lang]) {
-                        el.textContent = translations[text][lang];
+                        el.childNodes[0].textContent = translations[text][lang];
                         return;
                     }
                 }
                 
-                // Para elementos con múltiples nodos (p, li, etc)
+                // For elements with multiple child nodes
                 el.childNodes.forEach(node => {
                     if (node.nodeType === 3) { // Text node
-                        const text = node.textContent.trim();
+                        const text = node.textContent;
+                        // Try with trimmed text
+                        let trimmedText = text.trim();
+                        if (trimmedText && translations[trimmedText] && translations[trimmedText][lang]) {
+                            node.textContent = translations[trimmedText][lang];
+                            return;
+                        }
+                        // Try with original text
                         if (text && translations[text] && translations[text][lang]) {
                             node.textContent = translations[text][lang];
                         }
